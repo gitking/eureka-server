@@ -1,0 +1,11 @@
+server:
+    port: 8761
+eureka:
+   instance:
+       #eureka实例的主机的名字
+       hostname: eureka-server
+   client:
+       register-with-eureka: false #这个配的作用是不把我们eureka-server这个项目本身注册到注册中心里面,不做高可用的情况下,可以把该属性设置为false
+       fetch-registry: false #不从eureka上来获取服务的注册信息,因为我们本身就是注册中心,不像消费者一样需要获取服务注册信息
+       service-url:  #service-url用来指定eureka注册中心的地址,其他服务就是要在这里注册,这个可以不指定,不指定有默认值
+           defaultZone: http://localhost:8761/eureka/
